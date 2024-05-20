@@ -45,5 +45,72 @@ namespace ContactsApi.Controllers
         }
 
 
+        [HttpGet("get_contacts")]
+        public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
+        {
+            // Retrieve all contacts from the database
+            var contacts = await _context.Contacts.ToListAsync();
+
+            // Check if any contacts were found
+            if (contacts == null || !contacts.Any())
+            {
+                return NotFound("No contacts found.");
+            }
+
+            return Ok(contacts);
+        }
+
+        
+        [HttpPut("update_contact/{id}")]
+        public async Task<ActionResult<Contact>> UpdateContact(int id, Contact updatedContact)
+        {
+            // Check if the provided contact ID matches an existing contacts
+            var existingContact = await _context.Contacts.FindAsync(id);
+            if (existingContact == null)
+            {
+                return NotFound($"Contact with ID {id} not found.");
+            }
+
+            // Check if the updated email address already exists when updating
+            if (await _context.Contacts.AnyAsync(c => c.EmailAddress == updatedContact.EmailAddress && c.Id != id))
+            {
+                return Conflict("A contact with the same email address already exists.");
+            }
+
+            // Convert DateOfBirth to UTC format
+            updatedContact.DateOfBirth = updatedContact.DateOfBirth.ToUniversalTime();
+
+            // Update the existing contact properties
+            existingContact.Name = updatedContact.Name;
+            existingContact.Surname = updatedContact.Surname;
+            existingContact.TelephoneNumber = updatedContact.TelephoneNumber;
+            existingContact.EmailAddress = updatedContact.EmailAddress;
+            existingContact.DateOfBirth = updatedContact.DateOfBirth;
+
+            // Save the changes to the database
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Contact updated successfully", contact = existingContact });
+        }
+
+        [HttpDelete("delete_contact/{id}")]
+        public async Task<ActionResult> DeleteContact(int id)
+        {
+            // Check if the provided contact ID matches an existing contacts
+            var existingContact = await _context.Contacts.FindAsync(id);
+            if (existingContact == null)
+            {
+                return NotFound($"Contact with ID {id} not found.");
+            }
+
+            // Remove the contact from the database
+            _context.Contacts.Remove(existingContact);
+            await _context.SaveChangesAsync();
+
+            return Ok("Contact deleted successfully");
+        }
+
+
+
     }
 }

@@ -1,31 +1,27 @@
 <div class="container mt-4">
     <h1>Add Contact</h1>
-    <form>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="surname" class="form-label">Surname</label>
-            <input type="text" id="surname" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="phone_number" class="form-label">Telephone Number</label>
-            <input type="text" id="phone_number" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="email_dddress" class="form-label">Email Address</label>
-            <input type="email" id="email_dddress" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="date_of_birth" class="form-label">Date of Birth</label>
-            <input type="date" id="date_of_birth" class="form-control" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add</button>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="surname" class="form-label">Surname</label>
+        <input type="text" id="surname" class="form-control" formControlName="surname" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone_number" class="form-label">Telephone Number</label>
+        <input type="text" id="phone_number" class="form-control" formControlName="telephoneNumber" required>
+      </div>
+      <div class="mb-3">
+        <label for="email_address" class="form-label">Email Address</label>
+        <input type="email" id="email_address" class="form-control" formControlName="emailAddress" required>
+      </div>
+      <div class="mb-3">
+        <label for="date_of_birth" class="form-label">Date of Birth</label>
+        <input type="date" id="date_of_birth" class="form-control" formControlName="dateOfBirth">
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
     </form>
-</div>
+  </div>
+  

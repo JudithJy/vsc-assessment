@@ -15,6 +15,10 @@ export class ContactService {
     return this.http.get<Contact[]>(`${this.apiUrl}/contacts/get_contacts`);
   }
 
+  getContactById(id: number): Observable<Contact> {
+    return this.http.get<Contact>(`${this.apiUrl}/contacts/get_contact/${id}`);
+  }
+
   addContact(contact: Contact): Observable<Contact> {
     return this.http.post<Contact>(`${this.apiUrl}/contacts/create_contact`, contact);
   }

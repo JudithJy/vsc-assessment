@@ -60,6 +60,21 @@ namespace ContactsApi.Controllers
             return Ok(contacts);
         }
 
+        [HttpGet("get_contact/{id}")]
+        public async Task<ActionResult<Contact>> GetContact(int id)
+        {
+            // Find the contact by ID
+            var contact = await _context.Contacts.FindAsync(id);
+
+            // Check if the contact exists
+            if (contact == null)
+            {
+                return NotFound($"Contact with ID {id} not found.");
+            }
+
+            // Return the contact
+            return Ok(contact);
+        }
         
         [HttpPut("update_contact/{id}")]
         public async Task<ActionResult<Contact>> UpdateContact(int id, Contact updatedContact)

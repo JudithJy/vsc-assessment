@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h1>Add Contact</h1>
+  <h1>{{ isEditing ? 'Edit Contact' : 'Add Contact' }}</h1>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="alert alert-danger mt-1 mb-2" *ngIf="errorMessage">
       {{ errorMessage }}
@@ -24,6 +24,6 @@
       <label for="date_of_birth" class="form-label">Date of Birth</label>
       <input type="date" id="date_of_birth" class="form-control" formControlName="dateOfBirth" [ngClass]="{'is-invalid': contactForm.get('dateOfBirth')?.touched && contactForm.get('dateOfBirth')?.invalid}">
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">{{ isEditing ? 'Edit' : 'Add' }}</button>
   </form>
 </div>

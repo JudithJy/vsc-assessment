@@ -1,0 +1,46 @@
+<div class="onboarding">
+    <section class="index-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="card shadow p-4 p-md-3">
+
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="text-center">
+                                <p class="text-dark fw-bolder mb-3 text-x">Login</p>
+                            </div>
+                            <div class="alert alert-danger mt-1 mb-2 text-xs" *ngIf="errorMessage">
+                                {{ errorMessage }}
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <input 
+                                    type="text" 
+                                    class="form-control rounded text-xs" 
+                                    placeholder="Enter Username"  
+                                    formControlName="username"
+                                    [ngClass]="{'is-invalid': loginForm.get('username')?.touched && loginForm.get('username')?.invalid}"
+                                >
+                            </div> 
+
+                            <div class="form-group mb-3">
+                                <input 
+                                    type="password" 
+                                    class="form-control rounded text-xs" 
+                                    placeholder="Enter Password" 
+                                    formControlName="password" 
+                                    [ngClass]="{'is-invalid': loginForm.get('password')?.touched && loginForm.get('password')?.invalid}"
+                                    required
+                                >
+                            </div>
+                            
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-success btn-lg shadow-lg rounded text-white text-xs w-75 fw-bold fs-6 mt-2">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

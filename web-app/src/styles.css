@@ -1,1 +1,321 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #51a012;
+    --secondary-color: #0e7e1d;
+    --white: #fff;
+    --black: #0000;
+    --lighter-grey: #e9ecef;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    margin: auto;
+    padding: auto;
+    background-color: var(--lighter-grey);
+}
+
+.text-xl {
+    font-size: 13px !important;
+}
+
+.text-x {
+    font-size: 20px;
+}
+
+.text-xs {
+    font-size: 16px;
+}
+
+a {
+    color: #26387b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #26387b;
+}
+
+.uf-form-signin {
+    width: 100px;
+    max-width: 400px;
+    padding: 20px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.uf-input-group .input-group-text {
+    background: #ffffff70;
+    color: #f8f9fa;
+    border: unset;
+    font-size: 18px;
+    padding: 15px;
+    width: 50px;
+}
+
+.uf-input-group .form-control {
+    border: unset;
+    border-left: 2px solid #90ee73;
+    font-size: 16px;
+    background: #ecedee;
+}
+
+.uf-input-group .form-control:focus {
+    border-left: 2px solid #90ee73;
+    background: #ecedee;
+}
+
+.uf-input-group .form-control:hover {
+    border-left: 2px solid #90ee73;
+    background: #ecedee;
+}
+
+.uf-btn-primary {
+    background-color: var(--verifygreen);
+    color: var(--verifytext);
+}
+
+.uf-btn-primary:hover {
+    background-color: var(--verifygreen);
+    color: var(--verifytext);
+}
+
+.btn-primary {
+    background-color: var(--verifygreen);
+    color: var(--verifytext);
+}
+
+.btn-primary:hover {
+    background-color: var(--verifygreen);
+    color: var(--verifytext);
+}
+
+.btn-primary:focus {
+    background-color: var(--verifygreen);
+    color: var(--verifytext);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--white);
+}
+
+.uf-social-login .uf-social-ic + .uf-social-ic {
+    margin-left: 15px;
+}
+
+.uf-social-ic {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uf-social-ic:hover {
+    background: #189ab4;
+}
+
+.text-xs {
+    font-size: 12px !important;
+}
+
+.show-password {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+.show-password input {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+}
+
+.text-xs {
+    font-size: 12px;
+}
+
+.password-container {
+    width: 320px;
+    position: relative;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    width: 100%;
+    padding: 12px 36px 12px 12px;
+    box-sizing: border-box;
+}
+
+.fa-eye {
+    font-size: medium;
+    top: 50%;
+    margin-top: -1.8em;
+    margin-left: 92%;
+    cursor: pointer;
+    color: rgb(107 104 104);
+}
+
+.fa-eye-slash {
+    font-size: medium;
+    top: 50%;
+    margin-top: -1.8em;
+    margin-left: 92%;
+    cursor: pointer;
+    color: rgb(107 104 104);
+}
+
+.btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-success:hover {
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-success:focus {
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.content {
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--lighter-grey);
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0 0 0 / 15%);
+    width: 100%;
+    padding: 0 !important;
+}
+
+video,
+#canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateY(180deg);
+}
+
+.circle-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58%;
+    height: 95%;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 100vw rgba(0 0 0 / 60%);
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-overlay.fit {
+    border-color: green;
+}
+
+@media screen and (max-width <= 420px) {
+    .circle-overlay {
+        width: 70%;
+        height: 100%;
+    }
+
+    .modal-info {
+        font-size: 12px;
+    }
+
+    .ftco-section {
+        padding: 7em 0;
+    }
+
+    .fa-eye {
+        font-size: small;
+        left: 89%;
+    }
+}
+
+.index-section {
+    padding: 7em 0;
+}
+
+.card {
+    position: relative;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none !important;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width >= 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width >= 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width >= 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width >= 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .scoller {
+        height: 300px;
+    }
+}
+
+.scoller {
+    height: 250px;
+    overflow-y: auto;
+}
+
+.scoller::-webkit-scrollbar {
+    width: 10px; 
+}
+
+.scoller::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the thumb */
+}
+
+.scollerr::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color of the thumb on hover */
+}
+
+.otp {
+    cursor: pointer; 
+}

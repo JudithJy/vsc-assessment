@@ -55,7 +55,6 @@ export class ContactListComponent {
             },
             (error) => {
               if (error.status === 200 && error.error.text === "Contact deleted successfully") {
-                // Treat as success if status is 200 and the text matches
                 this.getContacts();
                 Swal.fire("Deleted!", "The contact has been deleted.", "success");
               } else {

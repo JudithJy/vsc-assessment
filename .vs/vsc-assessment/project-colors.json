@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d6257c61-c943-4561-bb4e-9b1aedb42780": {
+      "ProjectGuid": "d6257c61-c943-4561-bb4e-9b1aedb42780",
+      "DisplayName": "ContactsApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Contact } from '../app/models/contact.model';
+import { User } from './models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,10 @@ export class ContactService {
   private apiUrl = 'http://localhost:5159/api';
 
   constructor(private http: HttpClient) {}
+
+  userLogin(user: User): Observable<User> {
+    return this.http.post<User>(`${this.apiUrl}/users/login`, user);
+  }
 
   getContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(`${this.apiUrl}/contacts/get_contacts`);

@@ -8,5 +8,6 @@ namespace ContactsApi.Data
         public ContactContext(DbContextOptions<ContactContext> options) : base(options) { }
 
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

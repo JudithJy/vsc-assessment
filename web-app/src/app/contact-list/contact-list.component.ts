@@ -2,22 +2,21 @@ import { Component } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Contact } from '../models/contact.model';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [CommonModule],
-  providers: [HttpClient],
+  imports: [CommonModule, HttpClientModule],
+  providers: [ContactService],
   templateUrl: 'contact-list.component.html',
   styleUrls: ['contact-list.component.css'],
 })
 export class ContactListComponent {
-  // Initializing empty contacts array
   contacts: Contact[] = [];
 
-  // Injecting ContactService
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   ngOnInit() {
     this.getContacts();
@@ -43,5 +42,9 @@ export class ContactListComponent {
 
   edit_contact(contact: Contact){
     this.contactService.updateContact(contact);
+  }
+
+  add_contacts() {
+    this.router.navigate(['/contacts/add_contact']);
   }
 }

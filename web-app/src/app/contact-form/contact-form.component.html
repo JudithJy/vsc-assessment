@@ -1,27 +1,29 @@
 <div class="container mt-4">
-    <h1>Add Contact</h1>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" class="form-control" formControlName="name" required>
-      </div>
-      <div class="mb-3">
-        <label for="surname" class="form-label">Surname</label>
-        <input type="text" id="surname" class="form-control" formControlName="surname" required>
-      </div>
-      <div class="mb-3">
-        <label for="phone_number" class="form-label">Telephone Number</label>
-        <input type="text" id="phone_number" class="form-control" formControlName="telephoneNumber" required>
-      </div>
-      <div class="mb-3">
-        <label for="email_address" class="form-label">Email Address</label>
-        <input type="email" id="email_address" class="form-control" formControlName="emailAddress" required>
-      </div>
-      <div class="mb-3">
-        <label for="date_of_birth" class="form-label">Date of Birth</label>
-        <input type="date" id="date_of_birth" class="form-control" formControlName="dateOfBirth">
-      </div>
-      <button type="submit" class="btn btn-primary">Add</button>
-    </form>
-  </div>
-  
+  <h1>Add Contact</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="alert alert-danger mt-1 mb-2" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" [ngClass]="{'is-invalid': contactForm.get('name')?.touched && contactForm.get('name')?.invalid}">
+    </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label">Surname</label>
+      <input type="text" id="surname" class="form-control" formControlName="surname" [ngClass]="{'is-invalid': contactForm.get('surname')?.touched && contactForm.get('surname')?.invalid}">
+    </div>
+    <div class="mb-3">
+      <label for="phone_number" class="form-label">Telephone Number</label>
+      <input type="text" maxlength="10" minlength="10" id="phone_number" class="form-control" formControlName="telephoneNumber" [ngClass]="{'is-invalid': contactForm.get('telephoneNumber')?.touched && contactForm.get('telephoneNumber')?.invalid}">
+    </div>
+    <div class="mb-3">
+      <label for="email_address" class="form-label">Email Address</label>
+      <input type="email" id="email_address" class="form-control" formControlName="emailAddress" [ngClass]="{'is-invalid': contactForm.get('emailAddress')?.touched && contactForm.get('emailAddress')?.invalid}">
+    </div>
+    <div class="mb-3">
+      <label for="date_of_birth" class="form-label">Date of Birth</label>
+      <input type="date" id="date_of_birth" class="form-control" formControlName="dateOfBirth" [ngClass]="{'is-invalid': contactForm.get('dateOfBirth')?.touched && contactForm.get('dateOfBirth')?.invalid}">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
